@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+body
+{
+    height:100vh;
+    width:100%;
+    background-color: linear-gradient
+    ( to right top,
+
+        #051937
+        #008793
+        #5072e1
+        #37efb2
+        
+    )        
+    ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+#header
+{
+    font-size: medium;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+color: rgb(26, 203, 223);
+}
+#but1
+{
+    border-radius: 20px;
+    text-align: center;
+    font-size: large;
+    font-family:'Times New Roman', Times, serif;
+}
+#but2
+{
+    
+    border-radius: 20px;
+    text-align: center;
+    font-size: large;
+    font-family:'Times New Roman', Times, serif;
+}
+#css-code
+{
+    height:100;
+    width: auto;
+    text-align: center;
+    font-size: large;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    
+}
+</style>
+<body>
+    <section>
+        <div>
+            <button id="but1">#051937</button>
+            <button id="but2">#008793</button>
+        </div>
+        <h2 id="header">Copy HEX Code From Below:</h2>
+        <fieldset id="css-code"></fieldset>
+        
+    </section>
+    <script>
+
+        let but1 = document.getElementById("but1");
+        let but2 = document.getElementById("but2");
+        let cssCode=document.getElementById("css-code");
+        cssCode.innerText = but1.innerText;
+        let colors; 
+        const hexvalue = () =>
+        {
+            let hexvalue = "0123456789abcdef";
+            colors = "#";
+            
+            for(let i =0;i<6;i++)
+            {
+                colors = colors + (hexvalue[Math.floor(Math.random ()*16)]);
+            }
+            
+            return colors;
+        }
+        
+        
+        const handlebut1 = ()=> {
+            let rgb1 =  hexvalue ();
+            console.log(rgb1);
+            document.body.style.backgroundImage = `linear-gradient(to right,${rgb1},#444)`;
+            but1.innerText = colors;
+            cssCode.innerText=colors;
+            
+        }
+        
+        const handlebut2 = () =>{
+            let rgb2 = hexvalue ();
+            console.log(rgb2);
+             document.body.style.backgroundImage = `linear-gradient(to left,#201,${rgb2})`;
+            but2.innerText = colors;
+            cssCode.innerText=colors;
+        }    
+
+
+        but1.addEventListener('click',handlebut1);
+        but2.addEventListener('click',handlebut2);
+
+    </script>
+</body>
+</html>
